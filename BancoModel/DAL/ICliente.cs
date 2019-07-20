@@ -8,5 +8,6 @@ namespace BancoModel
 {
     public interface ICliente
     {
+        
     }
 }
