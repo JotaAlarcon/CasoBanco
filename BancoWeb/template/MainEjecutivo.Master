@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainEjecutivo.master.cs" Inherits="BancoWeb.template.MainEjecutivo" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sitio para Ejecutivos</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../js/bootstrap.min.js"></script>
+    <style>
+        .bg-verdeagua{
+            background-color:#E0F8F7;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col bg-light mt-5 align-items-center border-top border-bottom border-info">
+                <p class="float-left m-3 font-weight-bolder">Bienvenido/a **Nombre del Ejecutivo**</p>
+                <a href="default.aspx" class="btn btn-info btn-sm float-right m-3">Cerrar Sesión</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-expand-lg navbar-light bg-white mt-1">
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link btn btn-info text-white" href="e1.aspx">Inicio Ejecutivo <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="clientesEjecutivo.aspx">Mis Clientes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="depositosEjecutivo.aspx">Depositos</a>
+                            </li>
+
+                        </ul>
+                        <ul class="navbar-nav justify-content-end">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="e3.aspx">Mensajes<span class="badge badge-light">9</span></a>                       
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <form id="form1" runat="server">
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+</body>
+</html>
