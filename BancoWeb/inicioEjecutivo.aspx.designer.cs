@@ -139,13 +139,13 @@ namespace BancoWeb {
         protected global::System.Web.UI.WebControls.TextBox TextBox6;
         
         /// <summary>
-        /// Control Button1.
+        /// Control crearCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button crearCliente;
         
         /// <summary>
         /// Control TextBox7.
@@ -211,12 +211,12 @@ namespace BancoWeb {
         protected global::System.Web.UI.WebControls.DropDownList tiptar;
         
         /// <summary>
-        /// Control Button2.
+        /// Control crearCuenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button crearCuenta;
     }
 }

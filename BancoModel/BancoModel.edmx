@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BancoBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cuenta">
+          <Key>
+            <PropertyRef Name="NroCuenta" />
+          </Key>
+          <Property Name="NroCuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Saldo" Type="int" />
+          <Property Name="TipoCuenta" Type="varchar" MaxLength="5" />
+          <Property Name="DuenoCuenta" Type="varchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="Movimientos">
+          <Key>
+            <PropertyRef Name="CodMovimiento" />
+          </Key>
+          <Property Name="CodMovimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaMov" Type="date" />
+          <Property Name="TipoMov" Type="varchar" MaxLength="5" />
+          <Property Name="CuentaDestino" Type="int" />
+          <Property Name="CuentaOrigen" Type="int" />
+          <Property Name="Monto" Type="int" />
+        </EntityType>
+        <EntityType Name="TipoCuenta">
+          <Key>
+            <PropertyRef Name="CodTipoCuenta" />
+          </Key>
+          <Property Name="CodTipoCuenta" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="NombreTipoCuenta" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TipoMovimiento">
+          <Key>
+            <PropertyRef Name="CodTipMov" />
+          </Key>
+          <Property Name="CodTipMov" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="NombreTipMov" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TipoUsuario">
+          <Key>
+            <PropertyRef Name="CodTipoUsuario" />
+          </Key>
+          <Property Name="CodTipoUsuario" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="NombreTipo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Run" />
+          </Key>
+          <Property Name="Run" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="20" />
+          <Property Name="Telefono" Type="int" />
+          <Property Name="TipoUsuario" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <Association Name="FK_Cuenta_Dueno">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Cuenta" Type="Self.Cuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Run" />
+            </Principal>
+            <Dependent Role="Cuenta">
+              <PropertyRef Name="DuenoCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cuenta_Tipo">
+          <End Role="TipoCuenta" Type="Self.TipoCuenta" Multiplicity="0..1" />
+          <End Role="Cuenta" Type="Self.Cuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCuenta">
+              <PropertyRef Name="CodTipoCuenta" />
+            </Principal>
+            <Dependent Role="Cuenta">
+              <PropertyRef Name="TipoCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimientos_Cuenta">
+          <End Role="Cuenta" Type="Self.Cuenta" Multiplicity="0..1" />
+          <End Role="Movimientos" Type="Self.Movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cuenta">
+              <PropertyRef Name="NroCuenta" />
+            </Principal>
+            <Dependent Role="Movimientos">
+              <PropertyRef Name="CuentaDestino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimientos_Cuenta2">
+          <End Role="Cuenta" Type="Self.Cuenta" Multiplicity="0..1" />
+          <End Role="Movimientos" Type="Self.Movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cuenta">
+              <PropertyRef Name="NroCuenta" />
+            </Principal>
+            <Dependent Role="Movimientos">
+              <PropertyRef Name="CuentaOrigen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimientos_Tipo">
+          <End Role="TipoMovimiento" Type="Self.TipoMovimiento" Multiplicity="0..1" />
+          <End Role="Movimientos" Type="Self.Movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoMovimiento">
+              <PropertyRef Name="CodTipMov" />
+            </Principal>
+            <Dependent Role="Movimientos">
+              <PropertyRef Name="TipoMov" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Tipo">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="CodTipoUsuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="TipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BancoBDModelStoreContainer">
+          <EntitySet Name="Cuenta" EntityType="Self.Cuenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movimientos" EntityType="Self.Movimientos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoCuenta" EntityType="Self.TipoCuenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoMovimiento" EntityType="Self.TipoMovimiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cuenta_Dueno" Association="Self.FK_Cuenta_Dueno">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Cuenta" EntitySet="Cuenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cuenta_Tipo" Association="Self.FK_Cuenta_Tipo">
+            <End Role="TipoCuenta" EntitySet="TipoCuenta" />
+            <End Role="Cuenta" EntitySet="Cuenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimientos_Cuenta" Association="Self.FK_Movimientos_Cuenta">
+            <End Role="Cuenta" EntitySet="Cuenta" />
+            <End Role="Movimientos" EntitySet="Movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimientos_Cuenta2" Association="Self.FK_Movimientos_Cuenta2">
+            <End Role="Cuenta" EntitySet="Cuenta" />
+            <End Role="Movimientos" EntitySet="Movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimientos_Tipo" Association="Self.FK_Movimientos_Tipo">
+            <End Role="TipoMovimiento" EntitySet="TipoMovimiento" />
+            <End Role="Movimientos" EntitySet="Movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Tipo" Association="Self.FK_Usuario_Tipo">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BancoBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cuenta">
+          <Key>
+            <PropertyRef Name="NroCuenta" />
+          </Key>
+          <Property Name="NroCuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Saldo" Type="Int32" />
+          <Property Name="TipoCuenta" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="DuenoCuenta" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Cuenta_Dueno" FromRole="Cuenta" ToRole="Usuario" />
+          <NavigationProperty Name="TipoCuenta1" Relationship="Self.FK_Cuenta_Tipo" FromRole="Cuenta" ToRole="TipoCuenta" />
+          <NavigationProperty Name="Movimientos" Relationship="Self.FK_Movimientos_Cuenta" FromRole="Cuenta" ToRole="Movimientos" />
+          <NavigationProperty Name="Movimientos1" Relationship="Self.FK_Movimientos_Cuenta2" FromRole="Cuenta" ToRole="Movimientos" />
+        </EntityType>
+        <EntityType Name="Movimientos">
+          <Key>
+            <PropertyRef Name="CodMovimiento" />
+          </Key>
+          <Property Name="CodMovimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaMov" Type="DateTime" Precision="0" />
+          <Property Name="TipoMov" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CuentaDestino" Type="Int32" />
+          <Property Name="CuentaOrigen" Type="Int32" />
+          <Property Name="Monto" Type="Int32" />
+          <NavigationProperty Name="Cuenta" Relationship="Self.FK_Movimientos_Cuenta" FromRole="Movimientos" ToRole="Cuenta" />
+          <NavigationProperty Name="Cuenta1" Relationship="Self.FK_Movimientos_Cuenta2" FromRole="Movimientos" ToRole="Cuenta" />
+          <NavigationProperty Name="TipoMovimiento" Relationship="Self.FK_Movimientos_Tipo" FromRole="Movimientos" ToRole="TipoMovimiento" />
+        </EntityType>
+        <EntityType Name="TipoCuenta">
+          <Key>
+            <PropertyRef Name="CodTipoCuenta" />
+          </Key>
+          <Property Name="CodTipoCuenta" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreTipoCuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cuenta" Relationship="Self.FK_Cuenta_Tipo" FromRole="TipoCuenta" ToRole="Cuenta" />
+        </EntityType>
+        <EntityType Name="TipoMovimiento">
+          <Key>
+            <PropertyRef Name="CodTipMov" />
+          </Key>
+          <Property Name="CodTipMov" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreTipMov" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Movimientos" Relationship="Self.FK_Movimientos_Tipo" FromRole="TipoMovimiento" ToRole="Movimientos" />
+        </EntityType>
+        <EntityType Name="TipoUsuario">
+          <Key>
+            <PropertyRef Name="CodTipoUsuario" />
+          </Key>
+          <Property Name="CodTipoUsuario" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Tipo" FromRole="TipoUsuario" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Run" />
+          </Key>
+          <Property Name="Run" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="Int32" />
+          <Property Name="TipoUsuario" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cuenta" Relationship="Self.FK_Cuenta_Dueno" FromRole="Usuario" ToRole="Cuenta" />
+          <NavigationProperty Name="TipoUsuario1" Relationship="Self.FK_Usuario_Tipo" FromRole="Usuario" ToRole="TipoUsuario" />
+        </EntityType>
+        <Association Name="FK_Cuenta_Dueno">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Cuenta" Type="Self.Cuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Run" />
+            </Principal>
+            <Dependent Role="Cuenta">
+              <PropertyRef Name="DuenoCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cuenta_Tipo">
+          <End Role="TipoCuenta" Type="Self.TipoCuenta" Multiplicity="0..1" />
+          <End Role="Cuenta" Type="Self.Cuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCuenta">
+              <PropertyRef Name="CodTipoCuenta" />
+            </Principal>
+            <Dependent Role="Cuenta">
+              <PropertyRef Name="TipoCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimientos_Cuenta">
+          <End Role="Cuenta" Type="Self.Cuenta" Multiplicity="0..1" />
+          <End Role="Movimientos" Type="Self.Movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cuenta">
+              <PropertyRef Name="NroCuenta" />
+            </Principal>
+            <Dependent Role="Movimientos">
+              <PropertyRef Name="CuentaDestino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimientos_Cuenta2">
+          <End Role="Cuenta" Type="Self.Cuenta" Multiplicity="0..1" />
+          <End Role="Movimientos" Type="Self.Movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cuenta">
+              <PropertyRef Name="NroCuenta" />
+            </Principal>
+            <Dependent Role="Movimientos">
+              <PropertyRef Name="CuentaOrigen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimientos_Tipo">
+          <End Role="TipoMovimiento" Type="Self.TipoMovimiento" Multiplicity="0..1" />
+          <End Role="Movimientos" Type="Self.Movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoMovimiento">
+              <PropertyRef Name="CodTipMov" />
+            </Principal>
+            <Dependent Role="Movimientos">
+              <PropertyRef Name="TipoMov" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Tipo">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="CodTipoUsuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="TipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BancoBDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cuenta" EntityType="Self.Cuenta" />
+          <EntitySet Name="Movimientos" EntityType="Self.Movimientos" />
+          <EntitySet Name="TipoCuenta" EntityType="Self.TipoCuenta" />
+          <EntitySet Name="TipoMovimiento" EntityType="Self.TipoMovimiento" />
+          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK_Cuenta_Dueno" Association="Self.FK_Cuenta_Dueno">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Cuenta" EntitySet="Cuenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cuenta_Tipo" Association="Self.FK_Cuenta_Tipo">
+            <End Role="TipoCuenta" EntitySet="TipoCuenta" />
+            <End Role="Cuenta" EntitySet="Cuenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimientos_Cuenta" Association="Self.FK_Movimientos_Cuenta">
+            <End Role="Cuenta" EntitySet="Cuenta" />
+            <End Role="Movimientos" EntitySet="Movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimientos_Cuenta2" Association="Self.FK_Movimientos_Cuenta2">
+            <End Role="Cuenta" EntitySet="Cuenta" />
+            <End Role="Movimientos" EntitySet="Movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimientos_Tipo" Association="Self.FK_Movimientos_Tipo">
+            <End Role="TipoMovimiento" EntitySet="TipoMovimiento" />
+            <End Role="Movimientos" EntitySet="Movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Tipo" Association="Self.FK_Usuario_Tipo">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BancoBDModelStoreContainer" CdmEntityContainer="BancoBDEntities">
+          <EntitySetMapping Name="Cuenta">
+            <EntityTypeMapping TypeName="BancoBDModel.Cuenta">
+              <MappingFragment StoreEntitySet="Cuenta">
+                <ScalarProperty Name="NroCuenta" ColumnName="NroCuenta" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="TipoCuenta" ColumnName="TipoCuenta" />
+                <ScalarProperty Name="DuenoCuenta" ColumnName="DuenoCuenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movimientos">
+            <EntityTypeMapping TypeName="BancoBDModel.Movimientos">
+              <MappingFragment StoreEntitySet="Movimientos">
+                <ScalarProperty Name="CodMovimiento" ColumnName="CodMovimiento" />
+                <ScalarProperty Name="FechaMov" ColumnName="FechaMov" />
+                <ScalarProperty Name="TipoMov" ColumnName="TipoMov" />
+                <ScalarProperty Name="CuentaDestino" ColumnName="CuentaDestino" />
+                <ScalarProperty Name="CuentaOrigen" ColumnName="CuentaOrigen" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoCuenta">
+            <EntityTypeMapping TypeName="BancoBDModel.TipoCuenta">
+              <MappingFragment StoreEntitySet="TipoCuenta">
+                <ScalarProperty Name="CodTipoCuenta" ColumnName="CodTipoCuenta" />
+                <ScalarProperty Name="NombreTipoCuenta" ColumnName="NombreTipoCuenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoMovimiento">
+            <EntityTypeMapping TypeName="BancoBDModel.TipoMovimiento">
+              <MappingFragment StoreEntitySet="TipoMovimiento">
+                <ScalarProperty Name="CodTipMov" ColumnName="CodTipMov" />
+                <ScalarProperty Name="NombreTipMov" ColumnName="NombreTipMov" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoUsuario">
+            <EntityTypeMapping TypeName="BancoBDModel.TipoUsuario">
+              <MappingFragment StoreEntitySet="TipoUsuario">
+                <ScalarProperty Name="CodTipoUsuario" ColumnName="CodTipoUsuario" />
+                <ScalarProperty Name="NombreTipo" ColumnName="NombreTipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="BancoBDModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Run" ColumnName="Run" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="TipoUsuario" ColumnName="TipoUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

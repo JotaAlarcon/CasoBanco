@@ -124,7 +124,7 @@
                     </div>
 
 
-                    <asp:Button CssClass="btn btn-block btn-info mt-3" ID="Button1" runat="server" Text="Crear Cliente" />
+                    <asp:Button CssClass="btn btn-block btn-info mt-3" ID="crearCliente" OnClick="crearCliente_Click" runat="server" Text="Crear Cliente" />
 
                 </div>
 
@@ -197,13 +197,11 @@
                    
 
 
-                    <asp:Button CssClass="btn btn-block btn-info mt-5" ID="Button2" runat="server" Text="Crear Cuenta" />
+                    <asp:Button CssClass="btn btn-block btn-info mt-5" ID="crearCuenta" runat="server" Text="Crear Cuenta" />
 
                 </div>
-
-
+                </div>
             </div>
-        </div>
 
     </div>
 </asp:Content>

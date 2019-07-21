@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cd5e0859bd854e8fa3095b110855aaa8" Name="Diagram1">
+        <EntityTypeShape EntityType="BancoBDModel.Cuenta" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoBDModel.Movimientos" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoBDModel.TipoCuenta" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoBDModel.TipoMovimiento" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoBDModel.TipoUsuario" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoBDModel.Usuario" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="BancoBDModel.FK_Cuenta_Dueno" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoBDModel.FK_Cuenta_Tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoBDModel.FK_Movimientos_Cuenta" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoBDModel.FK_Movimientos_Cuenta2" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoBDModel.FK_Movimientos_Tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoBDModel.FK_Usuario_Tipo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

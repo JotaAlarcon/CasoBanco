@@ -7,14 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace BancoWeb
 {
-    public partial class e1 : System.Web.UI.Page
+    public partial class verClientes : System.Web.UI.Page
     {
+        private void CargarTabla(List<Cliente>)
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void crearCliente_Click(object sender, EventArgs e)
+        protected void GrillaClientes_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
         }
