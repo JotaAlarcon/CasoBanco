@@ -9,9 +9,10 @@ namespace BancoModel
 {
     public class Cliente
     {
+        //Atributos
         private String idCliente;
 
-
+        //Metodos
         public string IdCliente { get => idCliente; set => idCliente = value; }
     }
 }

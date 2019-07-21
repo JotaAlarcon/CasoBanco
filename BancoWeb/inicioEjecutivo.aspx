@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContenedorEjecutivo" runat="server">
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-lg-6 col-xl-5 mt-3">
@@ -48,12 +48,8 @@
                             <div class=" input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text material-icons" id="genero">face</span>
-                                </div>
-                                <select class="form-control" id="genero">
-                                    <option>Hombre</option>
-                                    <option>Mujer</option>
-                                    <option>Otro</option>
-                                </select>
+                            </div>
+                                <asp:DropDownList CssClass="form-control" ID="sexo" runat="server"></asp:DropDownList>                                
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -62,11 +58,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text material-icons" id="ecivil">favorite</span>
                                 </div>
-                                <select class="form-control" id="ecivil">
-                                    <option>Soltero</option>
-                                    <option>Casado</option>
-                                    <option>Union Civil</option>
-                                </select>
+                                <asp:DropDownList CssClass="form-control" ID="ecivil" runat="server"></asp:DropDownList> 
                             </div>
                         </div>
                     </div>
@@ -76,26 +68,18 @@
                             <asp:Label Text="Region:" runat="server" />
                             <div class=" input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text material-icons" id="genero">public</span>
+                                    <span class="input-group-text material-icons" id="region">public</span>
                                 </div>
-                                <select class="form-control" id="genero">
-                                    <option>La Serena</option>
-                                    <option>Santiago</option>
-                                    <option>Otro</option>
-                                </select>
+                                <asp:DropDownList CssClass="form-control" ID="region" runat="server"></asp:DropDownList> 
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <asp:Label Text="Comuna:" runat="server" />
                             <div class=" input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text material-icons" id="comuna">location_city</span>
+                                    <span class="input-group-text material-icons">location_city</span>
                                 </div>
-                                <select class="form-control" id="comuna">
-                                    <option>La Serena</option>
-                                    <option>Coquimbo</option>
-                                    <option>Ovalle</option>
-                                </select>
+                                <asp:DropDownList CssClass="form-control" ID="comuna" runat="server"></asp:DropDownList> 
                             </div>
                         </div>
                     </div>
@@ -105,12 +89,9 @@
                             <asp:Label Text="Tipo de Vivienda:" runat="server" />
                             <div class=" input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text material-icons" id="tipviv">domain</span>
+                                    <span class="input-group-text material-icons">domain</span>
                                 </div>
-                                <select class="form-control" id="vivienda">
-                                    <option>Casa</option>
-                                    <option>Departamento</option>
-                                </select>
+                                <asp:DropDownList CssClass="form-control" ID="tipviv" runat="server"></asp:DropDownList> 
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -165,18 +146,17 @@
                     <asp:Label Text="Tipo de Cuenta:" runat="server" />
                     <div class="row justify-content-between mt-1">
                         <div class="col-lg-6">
-                            <asp:RadioButton CssClass="form-group" ID="RadioButton1" GroupName="tipcuenta" Checked="true" runat="server" />
-                            Corriente
-                        </div>
-                        <div class="col-lg-6">
-                            <asp:RadioButton CssClass="form-group" GroupName="tipcuenta" ID="RadioButton2" runat="server" />
-                            Vista
+                        <asp:RadioButtonList CssClass="form-group-prepend" ID="TipoCuenta" runat="server">                            
+                            <asp:ListItem Text="Corriente" value="1"/>
+                            <asp:ListItem Text="Vista" value="2"/>
+                            <asp:ListItem Text="Ahorro" value="3"/>                            
+                        </asp:RadioButtonList>
                         </div>
                     </div>
 
                     <div class="row mt-4 justify-content-between">
                         <div class="col-lg-6">
-                            <asp:CheckBox ID="CheckBox1" runat="server" />
+                            <asp:CheckBox ID="checklc" runat="server" />
                             Linea de Credito
                         </div>
                         <div class="col-lg-6">
@@ -191,7 +171,7 @@
 
                     <div class="row mt-3 justify-content-between">
                         <div class="col-lg-6">
-                            <asp:CheckBox ID="CheckBox2" runat="server" />
+                            <asp:CheckBox ID="checktc" runat="server" />
                             Tarjeta de Credito
                         </div>
                         <div class="col-lg-6">
@@ -207,39 +187,14 @@
                     <asp:Label Text="Tipo de Tarjeta:" runat="server" />
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text material-icons" id="run">credit_card</span>
+                            <span class="input-group-text material-icons">credit_card</span>
                         </div>
-                        <select class="form-control" id="Select1">
-                            <option>Visa</option>
-                            <option>Mastercard</option>
-                        </select>
+                        <asp:DropDownList CssClass="form-control" ID="tiptar" runat="server"></asp:DropDownList> 
                     </div>
 
-                    <div class="row mt-3 justify-content-between">
-                        <div class="col-lg-6">
-                            <asp:CheckBox ID="CheckBox3" runat="server" />
-                            Cupo Internacional
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text material-icons" id="cupoint">monetization_on</span>
-                                </div>
-                                <asp:TextBox CssClass="form-control" ID="TextBox10" runat="server" placeholder="300.000"></asp:TextBox>
-                            </div>
-                        </div>
-                    </div>
+                    
 
-                    <div class="row mt-3 mb-5 justify-content-between">
-                        <div class="col-lg-6">
-                            <asp:CheckBox ID="CheckBox4" runat="server" />
-                            Chequera electrónica
-                        </div>
-
-                    </div>
-
-
-
+                   
 
 
                     <asp:Button CssClass="btn btn-block btn-info mt-5" ID="Button2" runat="server" Text="Crear Cuenta" />
