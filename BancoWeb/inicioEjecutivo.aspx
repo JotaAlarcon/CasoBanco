@@ -13,7 +13,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text material-icons" id="run">fingerprint</span>
                         </div>
-                        <asp:TextBox CssClass="form-control" ID="run" runat="server" placeholder="15.684.695-k"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="run" runat="server" aria-required="true" placeholder="15.684.695-k"></asp:TextBox>
                     </div>
 
                     <asp:Label Text="Nombres:" runat="server" />
@@ -21,8 +21,8 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text material-icons" id="nombres">face</span>
                         </div>
-                        <asp:TextBox CssClass="form-control" ID="nombre1" runat="server" placeholder="Juan"></asp:TextBox>
-                        <asp:TextBox CssClass="form-control" ID="Nombre2" runat="server" placeholder="Antonio"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="nombre1" runat="server" aria-required="true" placeholder="Juan"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="Nombre2" runat="server" aria-required="true" placeholder="Antonio"></asp:TextBox>
                     </div>
 
                     <asp:Label Text="Apellidos:" runat="server" />
@@ -30,8 +30,8 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text material-icons" id="apellidos">face</span>
                         </div>
-                        <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Ramirez"></asp:TextBox>
-                        <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Alvarez"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" aria-required="true" placeholder="Ramirez"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" aria-required="true" placeholder="Alvarez"></asp:TextBox>
                     </div>
 
                     <asp:Label Text="Mail:" runat="server" />
@@ -39,7 +39,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text material-icons" id="mail">mail_outline</span>
                         </div>
-                        <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="mail@ejemplo.cl"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" aria-required="true" placeholder="mail@ejemplo.cl"></asp:TextBox>
                     </div>
 
                     <div class="row">
@@ -112,13 +112,13 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text material-icons" id="calle">map</span>
                                 </div>
-                                <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server" placeholder="Av. Balmaceda"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="TextBox5" aria-required="true" runat="server" placeholder="Av. Balmaceda"></asp:TextBox>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <asp:Label Text="Sector:" runat="server" />
                             <div class="input-group mb-3">
-                                <asp:TextBox CssClass="form-control" ID="TextBox6" runat="server" placeholder="Centro"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="TextBox6" runat="server" aria-required="true" placeholder="Centro"></asp:TextBox>
                             </div>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text material-icons" id="run">fingerprint</span>
                         </div>
-                        <asp:TextBox CssClass="form-control" ID="TextBox7" runat="server" placeholder="15.684.695-k"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="TextBox7" aria-required="true" runat="server" placeholder="15.684.695-k"></asp:TextBox>
                     </div>
 
                     <asp:Label Text="Tipo de Cuenta:" runat="server" />
@@ -179,7 +179,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text material-icons" id="tcredito">monetization_on</span>
                                 </div>
-                                <asp:TextBox CssClass="form-control" ID="TextBox9" runat="server" placeholder="1.000.000"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="TextBox9" aria-required="true" runat="server" placeholder="1.000.000"></asp:TextBox>
                             </div>
                         </div>
                     </div>

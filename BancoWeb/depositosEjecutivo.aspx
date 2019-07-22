@@ -11,7 +11,7 @@
                 <h3>Depositar monto a:</h3>
             </div>
             <div class="col-lg-3 mt-3">
-                <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" ReadOnly="true" Text="12563485"></asp:TextBox>
+                <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" aria-required="true" ReadOnly="true" Text="12563485"></asp:TextBox>
             </div>
             <div class="col-lg-3 mt-3">
                 <asp:Button CssClass="btn btn-info btn-block" ID="Button1" runat="server" Text="Cargar Cliente" />
@@ -23,19 +23,19 @@
                     <div class="input-group align-items-center justify-content-between mb-2">
                         <asp:Label Text="Run Cliente:" runat="server" />
                         <div class="col-lg-8">
-                            <asp:TextBox CssClass="form-control ml-2" ID="TextBox11" runat="server" ReadOnly="true" Text="15.684.31-k"></asp:TextBox>
+                            <asp:TextBox CssClass="form-control ml-2" ID="TextBox11" aria-required="true" runat="server" ReadOnly="true" Text="15.684.31-k"></asp:TextBox>
                         </div>
                     </div>
                     <div class="input-group align-items-center justify-content-between mb-2">
                         <asp:Label Text="Nombre Cliente:" runat="server" />
                         <div class="col-lg-8">
-                            <asp:TextBox CssClass="form-control ml-2 " ID="TextBox2" runat="server" ReadOnly="true" Text="Juan Ramirez"></asp:TextBox>
+                            <asp:TextBox CssClass="form-control ml-2 " ID="TextBox2" aria-required="true" runat="server" ReadOnly="true" Text="Juan Ramirez"></asp:TextBox>
                         </div>
                     </div>
                     <div class="input-group align-items-center justify-content-between mb-2">
                         <asp:Label Text="Mail Cliente:" runat="server" />
                         <div class="col-lg-8">
-                            <asp:TextBox CssClass="form-control ml-2" ID="TextBox3" runat="server" ReadOnly="true" Text="juan.ramirez@cliente.cl"></asp:TextBox>
+                            <asp:TextBox CssClass="form-control ml-2" ID="TextBox3" aria-required="true" runat="server" ReadOnly="true" Text="juan.ramirez@cliente.cl"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -57,19 +57,19 @@
                     <div class="input-group align-items-center justify-content-between mb-2">
                         <asp:Label Text="N° Cuenta:" runat="server" />
                         <div class="col-lg-8">
-                            <asp:TextBox CssClass="form-control ml-2" ID="TextBox4" runat="server" ReadOnly="true" Text="167264426"></asp:TextBox>
+                            <asp:TextBox CssClass="form-control ml-2" ID="TextBox4" aria-required="true" runat="server" ReadOnly="true" Text="167264426"></asp:TextBox>
                         </div>
                     </div>
                     <div class="input-group align-items-center justify-content-between mb-2">
                         <asp:Label Text="Tipo de Cuenta:" runat="server" />
                         <div class="col-lg-8">
-                            <asp:TextBox CssClass="form-control ml-2 " ID="TextBox5" runat="server" ReadOnly="true" Text="Corriente"></asp:TextBox>
+                            <asp:TextBox CssClass="form-control ml-2 " ID="TextBox5" aria-required="true" runat="server" ReadOnly="true" Text="Corriente"></asp:TextBox>
                         </div>
                     </div>
                     <div class="input-group align-items-center justify-content-between mb-2">
                         <asp:Label Text="Saldo Disponible:" runat="server" />
                         <div class="col-lg-8">
-                            <asp:TextBox CssClass="form-control ml-2" ID="TextBox6" runat="server" ReadOnly="true" Text="256.214"></asp:TextBox>
+                            <asp:TextBox CssClass="form-control ml-2" ID="TextBox6" aria-required="true" runat="server" ReadOnly="true" Text="256.214"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                     <div class="input-group align-items-center justify-content-between mb-2">
                         <asp:Label Text="N° Cuenta:" runat="server" />
                         <div class="col-lg-8">
-                            <asp:TextBox CssClass="form-control ml-2" ID="TextBox7" runat="server" ReadOnly="true" Text="167264426"></asp:TextBox>
+                            <asp:TextBox CssClass="form-control ml-2" ID="TextBox7" aria-required="true" runat="server" ReadOnly="true" Text="167264426"></asp:TextBox>
                         </div>
                         <br />
                         <div class="row">

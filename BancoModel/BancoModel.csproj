@@ -50,72 +50,87 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BancoModel.Context.cs">
+    <Compile Include="BancoBD.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BancoModel.Context.tt</DependentUpon>
+      <DependentUpon>BancoBD.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="BancoModel.cs">
+    <Compile Include="BancoBD.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BancoModel.tt</DependentUpon>
+      <DependentUpon>BancoBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="BancoModel.Designer.cs">
+    <Compile Include="BancoBD.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BancoModel.edmx</DependentUpon>
+      <DependentUpon>BancoBD.edmx</DependentUpon>
     </Compile>
     <Compile Include="Cuenta.cs">
-      <DependentUpon>BancoModel.tt</DependentUpon>
+      <DependentUpon>BancoBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\ClientesDal.cs" />
-    <Compile Include="DAL\ICliente.cs" />
+    <Compile Include="DAL\CuentaDAL.cs" />
     <Compile Include="DAL\ICuenta.cs" />
-    <Compile Include="DAL\IEjecutivo.cs" />
+    <Compile Include="DAL\IMovimientos.cs" />
     <Compile Include="DAL\ITipoCuenta.cs" />
+    <Compile Include="DAL\ITipoMovimiento.cs" />
+    <Compile Include="DAL\ITipoUsuario.cs" />
     <Compile Include="DAL\IUsuario.cs" />
+    <Compile Include="DAL\MovimientosDAL.cs" />
+    <Compile Include="DAL\TipoCuentaDAL.cs" />
+    <Compile Include="DAL\TipoMovimientoDAL.cs" />
+    <Compile Include="DAL\TipoUsuarioDAL.cs" />
+    <Compile Include="DAL\UsuarioDAL.cs" />
     <Compile Include="Movimientos.cs">
-      <DependentUpon>BancoModel.tt</DependentUpon>
+      <DependentUpon>BancoBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>BancoBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>BancoBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>BancoBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="TipoCuenta.cs">
-      <DependentUpon>BancoModel.tt</DependentUpon>
+      <DependentUpon>BancoBD.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoMovimiento.cs">
-      <DependentUpon>BancoModel.tt</DependentUpon>
+      <DependentUpon>BancoBD.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoUsuario.cs">
-      <DependentUpon>BancoModel.tt</DependentUpon>
+      <DependentUpon>BancoBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs">
-      <DependentUpon>BancoModel.tt</DependentUpon>
+      <DependentUpon>BancoBD.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="BancoModel.edmx">
+    <EntityDeploy Include="BancoBD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BancoModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>BancoBD.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="BancoModel.edmx.diagram">
-      <DependentUpon>BancoModel.edmx</DependentUpon>
+    <None Include="BancoBD.edmx.diagram">
+      <DependentUpon>BancoBD.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BancoModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BancoModel.edmx</DependentUpon>
-      <LastGenOutput>BancoModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="BancoModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BancoModel.edmx</DependentUpon>
-      <LastGenOutput>BancoModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="BancoBD.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BancoBD.edmx</DependentUpon>
+      <LastGenOutput>BancoBD.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BancoBD.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BancoBD.edmx</DependentUpon>
+      <LastGenOutput>BancoBD.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

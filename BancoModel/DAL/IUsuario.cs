@@ -8,5 +8,8 @@ namespace BancoModel
 {
     public interface IUsuario
     {
+        List<Usuario> ObtenerUsuario();
+        void AgregarUsuario(Usuario usuario);
+        void EliminarUsuario(String run);
     }
 }

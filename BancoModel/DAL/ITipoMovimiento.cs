@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BancoModel
 {
-    public interface ITipoCuenta
+    public interface ITipoMovimiento
     {
-        List<TipoCuenta> ObtenerTipoCuenta();
+        List<TipoMovimiento> ObtenerTipoMovimiento();
     }
 }

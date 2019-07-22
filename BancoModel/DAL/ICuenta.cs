@@ -8,5 +8,8 @@ namespace BancoModel
 {
     public interface ICuenta
     {
+        List<Cuenta> ObtenerCuenta();
+        void AgregarCuenta(Cuenta cuenta);
+        void EliminarCuenta(int nrocu);
     }
 }

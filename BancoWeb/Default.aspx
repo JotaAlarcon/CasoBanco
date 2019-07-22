@@ -28,14 +28,14 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text material-icons" id="run">fingerprint</span>
                                             </div>
-                                            <asp:TextBox CssClass="form-control" ID="run" runat="server"></asp:TextBox>
+                                            <asp:TextBox CssClass="form-control" ID="run" aria-required="true" runat="server"></asp:TextBox>
 
                                         </div>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text material-icons" id="run">vpn_key</span>
                                             </div>
-                                            <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox>
+                                            <asp:TextBox CssClass="form-control" ID="TextBox1" aria-required="true" runat="server"></asp:TextBox>
 
                                         </div>
                                        

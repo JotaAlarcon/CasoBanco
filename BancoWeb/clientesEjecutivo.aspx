@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row flex-row">
             <div class="col-lg-6 mt-3 form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Buscar Cliente" aria-label="Search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar Cliente" aria-required="true" aria-label="Search">
                 <button class="btn btn-info my-2 my-sm-0" type="submit">Buscar</button>
             </div>
         </div>
@@ -29,23 +29,23 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text material-icons" id="nombres">face</span>
                                 </div>
-                                <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Juan"></asp:TextBox>
-                                <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Antonio"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" aria-required="true" placeholder="Juan"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" aria-required="true" placeholder="Antonio"></asp:TextBox>
                             </div>
 
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text material-icons" id="apellidos">face</span>
                                 </div>
-                                <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="Ramirez"></asp:TextBox>
-                                <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" placeholder="Alvarez"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" aria-required="true" placeholder="Ramirez"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" aria-required="true" placeholder="Alvarez"></asp:TextBox>
                             </div>
 
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text material-icons" id="mail">mail_outline</span>
                                 </div>
-                                <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server" placeholder="mail@ejemplo.cl"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server" aria-required="true" placeholder="mail@ejemplo.cl"></asp:TextBox>
                             </div>
 
                             <div class="input-group mb-2 justify-content-between">
@@ -109,7 +109,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text material-icons" id="numero">looks_6</span>
                                     </div>
-                                    <asp:TextBox CssClass="form-control" ID="TextBox6" runat="server" placeholder="4851/Block"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox6" runat="server" aria-required="true" placeholder="4851/Block"></asp:TextBox>
                                 </div>
                             </div>
 
@@ -118,14 +118,14 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text material-icons" id="calle">map</span>
                                     </div>
-                                    <asp:TextBox CssClass="form-control" ID="TextBox7" runat="server" placeholder="AV.Balmaceda"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox7" runat="server" aria-required="true" placeholder="AV.Balmaceda"></asp:TextBox>
                                 </div>
 
                                 <div class="input-group col-lg-5 p-0">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text material-icons" id="sector">looks_6</span>
                                     </div>
-                                    <asp:TextBox CssClass="form-control" ID="TextBox8" runat="server" placeholder="Las Compañias"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox8" runat="server" aria-required="true" placeholder="Las Compañias"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
@@ -163,21 +163,21 @@
                                 <div class="input-group align-items-center mb-2">
                                     <asp:Label Text="N° de Cuenta:" runat="server" />
                                     <div class="col w-25">
-                                        <asp:TextBox CssClass="form-control ml-2" ID="TextBox9" runat="server" ReadOnly="true" Text="1523698546"></asp:TextBox>
+                                        <asp:TextBox CssClass="form-control ml-2" ID="TextBox9" runat="server" aria-required="true" ReadOnly="true" Text="1523698546"></asp:TextBox>
                                     </div>
                                 </div>
 
                                 <div class="input-group align-items-center mb-2">
                                     <asp:Label Text="Monto Adeudado:" runat="server" />
                                     <div class="col">
-                                        <asp:TextBox CssClass="form-control ml-2" ID="TextBox10" runat="server" ReadOnly="true" Text="153.241"></asp:TextBox>
+                                        <asp:TextBox CssClass="form-control ml-2" ID="TextBox10" runat="server" aria-required="true" ReadOnly="true" Text="153.241"></asp:TextBox>
                                     </div>
                                 </div>
 
                                 <div class="input-group align-items-center mb-2">
                                     <asp:Label Text="Cupo Autorizado:" runat="server" />
                                     <div class="col">
-                                        <asp:TextBox CssClass="form-control ml-2 bg-info text-white" ID="TextBox11" runat="server" Text="500.000"></asp:TextBox>
+                                        <asp:TextBox CssClass="form-control ml-2 bg-info text-white" ID="TextBox11" aria-required="true" runat="server" Text="500.000"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
