@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
+using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace BancoModel
 {
@@ -28,11 +31,30 @@ namespace BancoModel
 
         public List<Usuario> SesionUsuario(string run)
         {
-            var query = from u in bancoBDEntities.Usuario
-                        where u.Run == run
-                        select u;
+            //var query = from u in bancoBDEntities.Usuario
+            //                            where u.Run == run
+            //                            select u;
 
-            return query.ToList();
+            //foreach (var a in query)
+            //{
+            //    System.Console.WriteLine(a.TipoUsuario);
+            //}
+            //return query.ToList();
+
+
+            using (BancoBDEntities context = new BancoBDEntities())
+            {
+                var query = from u in context.Usuario where u.Run.Equals(run) select u;
+
+
+                Console.WriteLine("usuario: ");
+                foreach (var usr in query)
+                {
+                    Console.WriteLine(usr.TipoUsuario);
+                }
+
+                return query.ToList();
+            }
         }
     }
 }

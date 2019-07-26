@@ -1,5 +1,8 @@
 ﻿using BancoModel;
 using System;
+using System.Data;
+using System.Data.Entity;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,16 +25,16 @@ namespace BancoWeb
             
             string run = this.run.Text.Trim();
             string password = this.password.Text.Trim();
-            string tipouser = this.tipouser.SelectedItem.Value;
+            //string tipouser = this.tipouser.SelectedItem.Value;
 
+                List<Usuario> usr = new UsuarioDAL().SesionUsuario(run);
+                Console.WriteLine(usr);
 
-            if (tipouser.Equals("Ejecutivo"))
+            if (usr.Equals("TU01"))
             {
                 //List<Usuario> usuario = new UsuarioDAL().ObtenerUsuario();
                 //usuario.ToList();
 
-                List<Usuario> usr = new UsuarioDAL().SesionUsuario(run);
-                Console.WriteLine(usr);
                 
 
                 Response.Redirect("inicioEjecutivo.aspx");
