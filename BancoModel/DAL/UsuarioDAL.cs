@@ -37,7 +37,7 @@ namespace BancoModel
 
             foreach (var u in query)
             {
-                System.Console.WriteLine(u.TipoUsuario);
+                Console.WriteLine(u.TipoUsuario);
             }
             return query.ToList();
 

@@ -37,12 +37,12 @@
                                         <asp:TextBox CssClass="form-control" ID="password" TextMode="Password" AutoPostBack="true" aria-required="true" runat="server"></asp:TextBox>
 
                                     </div>
-                                    <div class="form-group col-6">
+                                    <%--<div class="form-group col-6">
                                         <asp:RadioButtonList ID="tipouser" runat="server">
                                             <asp:ListItem Text="Ejecutivo" Value="Ejecutivo"></asp:ListItem>
                                             <asp:ListItem Text="Cliente" Value="Cliente"></asp:ListItem>
                                         </asp:RadioButtonList>
-                                    </div>
+                                    </div>--%>
                                     <asp:Button ID="ingresar" CssClass="btn btn-info m-2" OnClick="Ingresar_Click" runat="server" Text="Ingresar" />
 
                                 </div>

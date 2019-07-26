@@ -25,12 +25,16 @@ namespace BancoWeb
             
             string run = this.run.Text.Trim();
             string password = this.password.Text.Trim();
-            //string tipouser = this.tipouser.SelectedItem.Value;
+            string tipousr = "";
 
-                List<Usuario> usr = new UsuarioDAL().SesionUsuario(run);
-                Console.WriteLine(usr);
+            List<Usuario> usr = new UsuarioDAL().SesionUsuario(run);
+            foreach (var tip in usr)
+            {
+                tipousr = tip.TipoUsuario;
+                Console.WriteLine(tip.TipoUsuario);
+            }
 
-            if (usr.Equals("TU01"))
+            if (tipousr.Equals("TU01"))
             {
                 //List<Usuario> usuario = new UsuarioDAL().ObtenerUsuario();
                 //usuario.ToList();

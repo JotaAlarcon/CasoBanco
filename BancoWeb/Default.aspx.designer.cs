@@ -40,15 +40,6 @@ namespace BancoWeb {
         protected global::System.Web.UI.WebControls.TextBox password;
         
         /// <summary>
-        /// Control tipouser.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList tipouser;
-        
-        /// <summary>
         /// Control ingresar.
         /// </summary>
         /// <remarks>
