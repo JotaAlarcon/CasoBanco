@@ -43,7 +43,7 @@
                                             <asp:ListItem Text="Cliente" Value="Cliente"></asp:ListItem>
                                         </asp:RadioButtonList>
                                     </div>
-                                    <asp:Button ID="ingresar" CssClass="btn btn-info m-2" OnClick="ingresar_Click" runat="server" Text="Ingresar" />
+                                    <asp:Button ID="ingresar" CssClass="btn btn-info m-2" OnClick="Ingresar_Click" runat="server" Text="Ingresar" />
 
                                 </div>
                             </div>

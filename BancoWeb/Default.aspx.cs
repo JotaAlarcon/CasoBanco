@@ -14,17 +14,17 @@ namespace BancoWeb
 
         }
 
-        protected void ingresar_Click(object sender, EventArgs e)
+        protected void Ingresar_Click(object sender, EventArgs e)
         {
             string run = this.run.Text.Trim();
             string password = this.password.Text.Trim();
             string tipouser = this.tipouser.SelectedItem.Value;
 
-            Session["Login"]
 
             if (tipouser.Equals("Ejecutivo"))
             {
                 Response.Redirect("inicioEjecutivo.aspx");
+
             }
             else
             {
