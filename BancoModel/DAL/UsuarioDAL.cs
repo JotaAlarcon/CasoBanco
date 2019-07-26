@@ -31,30 +31,30 @@ namespace BancoModel
 
         public List<Usuario> SesionUsuario(string run)
         {
-            //var query = from u in bancoBDEntities.Usuario
-            //                            where u.Run == run
-            //                            select u;
+            var query = from u in bancoBDEntities.Usuario
+                        where u.Run == run
+                        select u;
 
-            //foreach (var a in query)
-            //{
-            //    System.Console.WriteLine(a.TipoUsuario);
-            //}
-            //return query.ToList();
-
-
-            using (BancoBDEntities context = new BancoBDEntities())
+            foreach (var u in query)
             {
-                var query = from u in context.Usuario where u.Run.Equals(run) select u;
-
-
-                Console.WriteLine("usuario: ");
-                foreach (var usr in query)
-                {
-                    Console.WriteLine(usr.TipoUsuario);
-                }
-
-                return query.ToList();
+                System.Console.WriteLine(u.TipoUsuario);
             }
+            return query.ToList();
+
+
+            //using (BancoBDEntities context = new BancoBDEntities())
+            //{
+            //    var query = from u in context.Usuario where u.Run.Equals(run) select u;
+
+
+            //    Console.WriteLine("usuario: ");
+            //    foreach (var usr in query)
+            //    {
+            //        Console.WriteLine(usr.TipoUsuario);
+            //    }
+
+            //    return query.ToList();
+            //}
         }
     }
 }
