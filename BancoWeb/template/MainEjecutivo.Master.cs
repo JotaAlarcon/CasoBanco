@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BancoModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,20 @@ namespace BancoWeb.template
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            String tipo = Session["Ejecutivo"].ToString();
+            
 
+            if (tipo == "TU01")
+            {
+                List<Usuario> usr = new UsuarioDAL().ObtenerUsuarioPorTipo(tipo);
+                string nombre = "";
+                foreach (var nom in usr)
+                {
+                    nombre = nom.Nombre + " " + nom.Apellido;
+
+                }
+                Label1.Text = nombre;
+            }
         }
     }
 }

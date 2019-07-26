@@ -13,5 +13,7 @@ namespace BancoModel
         {
             return bancoBDEntities.TipoUsuario.ToList();
         }
+
+        
     }
 }

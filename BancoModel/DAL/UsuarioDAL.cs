@@ -56,5 +56,19 @@ namespace BancoModel
             //    return query.ToList();
             //}
         }
+
+        public List<Usuario> ObtenerUsuarioPorTipo(string tipo)
+        {
+            var query = from t in bancoBDEntities.Usuario
+                        where t.TipoUsuario == tipo
+                        select t;
+            foreach (var tip in query)
+            {
+
+            }
+
+            return query.ToList();
+
+        }
     }
 }

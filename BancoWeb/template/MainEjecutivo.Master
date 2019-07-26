@@ -8,6 +8,7 @@
     <title>Sitio para Ejecutivos</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <script src="../js/bootstrap.min.js"></script>
+    
     <style>
         .bg-verdeagua{
             background-color:#E0F8F7;
@@ -24,7 +25,8 @@
 
 
             <div class="col bg-light mt-5 align-items-center border-top border-bottom border-info">
-                <p class="float-left m-3 font-weight-bolder">Bienvenido/a **Nombre del Ejecutivo**</p>
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                <%--<p class="float-left m-3 font-weight-bolder">Bienvenido/a **Nombre del Ejecutivo**</p>--%>
                 <a href="default.aspx" class="btn btn-info btn-sm float-right m-3">Cerrar Sesión</a>
             </div>
         </div>

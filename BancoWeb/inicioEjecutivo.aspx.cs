@@ -16,7 +16,15 @@ namespace BancoWeb
         
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                String usuario = Session["Ejecutivo"].ToString();
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("Default.aspx?men=1");
+                throw;
+            }
 
         }
 

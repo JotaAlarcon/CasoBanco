@@ -16,6 +16,15 @@ namespace BancoWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             BancoBDEntities bancoBDEntities = new BancoBDEntities();
+            if (Request.Params["Ejeutivo"] != null)
+            {
+                String men = Request.Params["men"];
+
+                if (men == "1")
+                {
+                    
+                }
+            }
             
     }
 
@@ -36,19 +45,19 @@ namespace BancoWeb
 
             if (tipousr.Equals("TU01"))
             {
-                //List<Usuario> usuario = new UsuarioDAL().ObtenerUsuario();
-                //usuario.ToList();
-
-                
-
+                Session["Ejecutivo"] = tipousr;
                 Response.Redirect("inicioEjecutivo.aspx");
-               
-    
+
+
             }
-            else
-            {
-                Response.Redirect("inicioCliente.aspx");
+            else {
+                if (tipousr.Equals("TU02"))
+                {
+                    Session["Cliente"] = tipousr;
+                    Response.Redirect("inicioCliente.aspx");
+                }
             }
+           
 
         }
 
