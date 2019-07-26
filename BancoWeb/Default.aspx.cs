@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BancoModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,11 +12,14 @@ namespace BancoWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
+            BancoBDEntities bancoBDEntities = new BancoBDEntities();
+            
+    }
 
         protected void Ingresar_Click(object sender, EventArgs e)
         {
+
+            
             string run = this.run.Text.Trim();
             string password = this.password.Text.Trim();
             string tipouser = this.tipouser.SelectedItem.Value;
@@ -23,8 +27,16 @@ namespace BancoWeb
 
             if (tipouser.Equals("Ejecutivo"))
             {
-                Response.Redirect("inicioEjecutivo.aspx");
+                //List<Usuario> usuario = new UsuarioDAL().ObtenerUsuario();
+                //usuario.ToList();
 
+                List<Usuario> usr = new UsuarioDAL().SesionUsuario(run);
+                Console.WriteLine(usr);
+                
+
+                Response.Redirect("inicioEjecutivo.aspx");
+               
+    
             }
             else
             {

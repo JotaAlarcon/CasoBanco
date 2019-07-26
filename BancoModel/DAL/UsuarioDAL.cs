@@ -25,5 +25,14 @@ namespace BancoModel
         {
             return bancoBDEntities.Usuario.ToList();
         }
+
+        public List<Usuario> SesionUsuario(string run)
+        {
+            var query = from u in bancoBDEntities.Usuario
+                        where u.Run == run
+                        select u;
+
+            return query.ToList();
+        }
     }
 }
