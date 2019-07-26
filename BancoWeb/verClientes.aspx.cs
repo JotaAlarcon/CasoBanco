@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BancoModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,7 +10,6 @@ namespace BancoWeb
 {
     public partial class verClientes : System.Web.UI.Page
     {
-        private void CargarTabla(List<Cliente>)
 
         protected void Page_Load(object sender, EventArgs e)
         {

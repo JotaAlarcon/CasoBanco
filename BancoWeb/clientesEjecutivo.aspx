@@ -19,7 +19,7 @@
                     <div class="row mt-3 justify-content-between">
                         <div class="col-lg-2 d-flex align-items-center ml-5 mb-3">
                             <div class="">
-                                <img alt="" src="img/eje2.jpg" width="150px" height="150px" />
+                                <img alt="" src="img/eje2.jpg" width="150" height="150" />
                                 <asp:Button CssClass="btn btn-sm btn-info btn-block mt-2" ID="Button1" runat="server" Text="Cambiar Imagen" />
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="input-group col-lg-5 p-0">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text material-icons" id="ecivil">favorite</span>
+                                        <span class="input-group-text material-icons" id="ecivilSpan">favorite</span>
                                     </div>
                                     <select class="form-control" id="ecivil">
                                         <option>Soltero</option>
@@ -73,7 +73,7 @@
                             <div class="input-group-prepend mb-2 justify-content-between">
                                 <div class="input-group col-lg-5 p-0">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text material-icons" id="region">public</span>
+                                        <span class="input-group-text material-icons" id="regionSpan">public</span>
                                     </div>
                                     <select class="form-control" id="region">
                                         <option>Atacama</option>
@@ -84,7 +84,7 @@
 
                                 <div class="input-group col-lg-5 p-0">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text material-icons" id="ciudad">public</span>
+                                        <span class="input-group-text material-icons" id="ciudadSpan">public</span>
                                     </div>
                                     <select class="form-control" id="ciudad">
                                         <option>La Serena</option>
@@ -97,7 +97,7 @@
                             <div class="input-group-prepend mb-2 justify-content-between">
                                 <div class="input-group col-lg-5 p-0">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text material-icons" id="region">location_city</span>
+                                        <span class="input-group-text material-icons" id="regionSpan2">location_city</span>
                                     </div>
                                     <select class="form-control" id="tipovivienda">
                                         <option>Casa</option>
